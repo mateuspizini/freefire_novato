@@ -1,0 +1,26 @@
+# Executáveis
+*.exe
+inventario_freefire
+a.out
+
+# Arquivos de compilação
+*.o
+*.obj
+*.a
+*.so
+*.dll
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários
+*~
+*.tmp
+*.temp
+
+# Arquivos do VS Code (opcional - remova se quiser versioná-los)
+.vscode/
+
+# Arquivos de log
+*.log
