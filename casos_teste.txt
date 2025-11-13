@@ -1,0 +1,172 @@
+/*
+ * Casos de Teste - Sistema de Inventário Free Fire
+ * 
+ * Este arquivo contém exemplos de teste e casos de uso
+ * para validar as funcionalidades do sistema de inventário.
+ */
+
+/*
+=================================================
+CASO DE TESTE 1: CADASTRO BÁSICO DE ITENS
+=================================================
+
+Objetivo: Testar o cadastro de diferentes tipos de itens
+
+Passos:
+1. Executar o programa
+2. Selecionar opção 1 (Cadastrar item)
+3. Inserir os seguintes itens:
+
+Item 1:
+Nome: AK47
+Tipo: arma
+Quantidade: 1
+
+Item 2:
+Nome: Balas 7.62
+Tipo: municao
+Quantidade: 90
+
+Item 3:
+Nome: Kit Medico
+Tipo: cura
+Quantidade: 2
+
+Resultado Esperado:
+- 3 itens cadastrados com sucesso
+- Listagem automática após cada cadastro
+- Contador de itens atualizado (3/10)
+
+=================================================
+CASO DE TESTE 2: BUSCA DE ITENS
+=================================================
+
+Objetivo: Validar a função de busca sequencial
+
+Pré-condição: Ter itens cadastrados (usar Caso 1)
+
+Passos:
+1. Selecionar opção 4 (Buscar item)
+2. Buscar por "AK47"
+3. Buscar por "Kit Medico"
+4. Buscar por "Item Inexistente"
+
+Resultado Esperado:
+- AK47 encontrado com dados completos
+- Kit Medico encontrado com dados completos
+- Item Inexistente não encontrado com lista de sugestões
+
+=================================================
+CASO DE TESTE 3: REMOÇÃO DE ITENS
+=================================================
+
+Objetivo: Testar a remoção e reorganização da lista
+
+Pré-condição: Ter itens cadastrados (usar Caso 1)
+
+Passos:
+1. Selecionar opção 2 (Remover item)
+2. Remover "Balas 7.62"
+3. Listar itens (opção 3)
+4. Tentar remover item inexistente
+
+Resultado Esperado:
+- Balas 7.62 removidas com sucesso
+- Lista reorganizada automaticamente
+- Contador atualizado (2/10)
+- Erro ao tentar remover item inexistente
+
+=================================================
+CASO DE TESTE 4: LIMITE DA MOCHILA
+=================================================
+
+Objetivo: Testar o limite máximo de 10 itens
+
+Passos:
+1. Cadastrar 10 itens diferentes:
+   - AK47 (arma, 1)
+   - M4A1 (arma, 1)
+   - AWM (arma, 1)
+   - Balas 5.56 (municao, 120)
+   - Balas 7.62 (municao, 90)
+   - Balas .45 (municao, 60)
+   - Kit Medico (cura, 3)
+   - Bandagem (cura, 5)
+   - Granada (ferramenta, 2)
+   - Gloo Wall (ferramenta, 10)
+
+2. Tentar cadastrar um 11º item
+
+Resultado Esperado:
+- Primeiros 10 itens cadastrados com sucesso
+- 11º item rejeitado com mensagem "MOCHILA CHEIA"
+
+=================================================
+CASO DE TESTE 5: VALIDAÇÃO DE ENTRADA
+=================================================
+
+Objetivo: Testar validações do sistema
+
+Passos:
+1. Tentar cadastrar item com quantidade zero
+2. Tentar cadastrar item com quantidade negativa
+3. Tentar buscar em mochila vazia
+4. Tentar remover de mochila vazia
+
+Resultado Esperado:
+- Quantidade <= 0 rejeitada
+- Operações em mochila vazia tratadas adequadamente
+- Mensagens de erro claras e orientativas
+
+=================================================
+CASO DE TESTE 6: FLUXO COMPLETO
+=================================================
+
+Objetivo: Simular uso real do sistema
+
+Cenário: Jogador coletando loot inicial
+
+Passos:
+1. Cadastrar arma principal: MP40 (arma, 1)
+2. Cadastrar munição: Balas .45 (municao, 60)
+3. Cadastrar cura: Bandagem (cura, 3)
+4. Buscar por "MP40" para confirmar
+5. Coletar segunda arma: M1014 (arma, 1)
+6. Cadastrar mais munição: Cartuchos (municao, 20)
+7. Listar todo o inventário
+8. Remover item menos útil se necessário
+9. Cadastrar ferramenta: Smoke (ferramenta, 2)
+
+Resultado Esperado:
+- Simulação realística de coleta de loot
+- Gerenciamento eficiente do espaço da mochila
+- Interface intuitiva para tomada de decisões
+
+=================================================
+INSTRUÇÕES PARA EXECUÇÃO DOS TESTES
+=================================================
+
+1. Compile o programa:
+   gcc -o inventario_freefire inventario_freefire.c
+
+2. Execute o programa:
+   ./inventario_freefire
+
+3. Siga os passos de cada caso de teste
+
+4. Verifique se os resultados coincidem com o esperado
+
+5. Documente qualquer comportamento inesperado
+
+=================================================
+CRITÉRIOS DE ACEITAÇÃO
+=================================================
+
+✅ Todas as funcionalidades implementadas
+✅ Interface amigável e intuitiva
+✅ Validações de entrada adequadas
+✅ Tratamento de erros eficiente
+✅ Performance aceitável (< 2 segundos por operação)
+✅ Código bem documentado e comentado
+✅ Estrutura de dados apropriada
+✅ Busca sequencial funcionando corretamente
